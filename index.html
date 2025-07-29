@@ -7,7 +7,6 @@
     <meta name="description" content="Cabinet of Selves - A tool for psychological integration and emotional healing based on Internal Family Systems (IFS)">
     <title>Cabinet of Selves | IFS-Based Psychological Tool</title>
     
-    <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link href="https://unpkg.com/lucide@latest/dist/lucide.min.css" rel="stylesheet">
@@ -201,6 +200,44 @@
     .nav-links a:hover::after {
         width: 100%;
     }
+
+    /* Language Switcher Styles */
+    .language-switcher {
+        position: relative;
+        display: inline-block;
+        margin-left: 1rem;
+    }
+
+    .language-switcher select {
+        background: var(--card-bg);
+        color: var(--parchment);
+        border: 1px solid var(--border-color);
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        appearance: none; /* Remove default arrow */
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        transition: all 0.3s ease;
+    }
+
+    .language-switcher select:focus {
+        outline: none;
+        border-color: var(--mauve-mist);
+        box-shadow: 0 0 0 2px rgba(213, 165, 201, 0.3);
+    }
+
+    .language-switcher::after {
+        content: '\25BC'; /* Down arrow character */
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--sacred-gold);
+        pointer-events: none;
+    }
+
 
     /* Mobile menu button */
     .mobile-menu-btn {
@@ -1166,41 +1203,6 @@
         color: var(--sacred-gold);
     }
 
-    .footer-bottom {
-        text-align: center;
-        padding-top: 2rem;
-        border-top: 1px solid rgba(187, 164, 92, 0.2);
-        color: var(--weathered-silver);
-        font-size: 0.9rem;
-        position: relative;
-        z-index: 1;
-    }
-
-    .legal-links {
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        margin-top: 1.5rem;
-        flex-wrap: wrap;
-    }
-
-    .legal-links a {
-        color: var(--weathered-silver);
-        transition: color 0.3s ease;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
-
-    .legal-links a i {
-        font-size: 0.8rem;
-        color: var(--sacred-gold);
-    }
-
-    .legal-links a:hover {
-        color: var(--parchment);
-    }
-
     /* Video Modal */
     .video-modal {
         display: none;
@@ -1288,1091 +1290,1204 @@
 
     @keyframes pulse {
         0%, 100% { opacity: 0.5; transform: scale(1); }
-        50% { opacity: 1; transform: scale(1.1); }
+        50% { opacity: 1; transform: scale(1.05); }
     }
-
-    @keyframes rotate {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
-
-    @keyframes mist {
-        0% { transform: translateX(-10%) translateY(-5%); }
-        50% { transform: translateX(10%) translateY(5%); }
-        100% { transform: translateX(-10%) translateY(-5%); }
-    }
-
-    @keyframes shimmer {
-        0% { background-position: -1000px 0; }
-        100% { background-position: 1000px 0; }
-    }
-
-    .animate-float {
-        animation: float 5s ease-in-out infinite;
-    }
-
-    .animate-pulse {
-        animation: pulse 3s ease-in-out infinite;
-    }
-
-    .animate-rotate {
-        animation: rotate 20s linear infinite;
-    }
-
-    .animate-mist {
-        animation: mist 60s linear infinite;
-        opacity: 0.1;
-    }
-
-    .animate-shimmer {
-        animation: shimmer 8s linear infinite;
-        background: linear-gradient(90deg, rgba(187,164,92,0.1) 0%, rgba(213,165,201,0.2) 50%, rgba(187,164,92,0.1) 100%);
-        background-size: 1000px 100%;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 1200px) {
-        .hero-text h1 {
-            font-size: 3rem;
-        }
-    }
-
-    @media (max-width: 1024px) {
-        .hero-content {
-            grid-template-columns: 1fr;
-            gap: 3rem;
-        }
-
-        .hero-text {
-            order: 1;
-            text-align: center;
-        }
-
-        .hero-text p {
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-buttons {
-            justify-content: center;
-        }
-
-        .hero-image-container {
-            order: 0;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .ifs-content {
-            grid-template-columns: 1fr;
-        }
-
-        .ifs-image {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .visualization-content {
-            grid-template-columns: 1fr;
-        }
-
-        .visualization-image {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-    }
-
-    @media (max-width: 768px) {
-        h1 { font-size: 2.5rem; }
-        h2 { font-size: 2rem; }
-
-        .navbar {
-            padding: 1rem;
-        }
-
-        .nav-links {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 70%;
-            height: 100vh;
-            background: rgba(9, 26, 43, 0.98);
-            backdrop-filter: blur(10px);
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 2rem;
-            transition: right 0.5s ease;
-            z-index: 1000;
-            border-left: 1px solid var(--border-color);
-        }
-
-        .nav-links.active {
-            right: 0;
-        }
-
-        .mobile-menu-btn {
-            display: block;
-        }
-
-        .hero-text h1 {
-            font-size: 2.5rem;
-        }
-
-        .hero-buttons {
-            flex-direction: column;
-            gap: 1.2rem;
-        }
-
-        .btn {
-            width: 100%;
-            max-width: 300px;
-            justify-content: center;
-            margin: 0 auto;
-        }
-
-        section {
-            padding: 4rem 0;
-        }
-
-        .pricing-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .pricing-card.featured {
-            transform: none;
-        }
-
-        .cta-buttons {
-            flex-direction: column;
-            align-items: center;
-            gap: 1.2rem;
-        }
-
-        .cta-buttons .btn {
-            width: 100%;
-            max-width: 300px;
-        }
-
-        .swiper {
-            padding: 2rem 0;
-        }
-    }
-
-    @media (max-width: 576px) {
-        .container {
-            padding: 0 1.2rem;
-        }
-        
-        h1 { 
-            font-size: 2.2rem;
-            font-family: 'Playfair Display', serif;
-            font-weight: 500;
-        }
-        h2 { 
-            font-size: 1.8rem;
-            font-family: 'Playfair Display', serif;
-            font-weight: 500;
-        }
-        
-        .section-header h2::after {
-            width: 80px;
-        }
-
-        .video-content {
-            width: 95%;
-            padding: 1rem;
-        }
-
-        .testimonial-card {
-            padding: 1.8rem;
-        }
-
-        .pwa-step {
-            padding: 1.2rem;
-        }
-
-        .legal-links {
-            flex-direction: column;
-            gap: 0.8rem;
-            align-items: center;
-        }
-
-        .footer-grid {
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-    }
-
-    /* Utility Classes */
-    .text-center { text-align: center; }
-    .text-accent { color: var(--mauve-mist); }
-    .text-gold { color: var(--sacred-gold); }
-    .mt-1 { margin-top: 1rem; }
-    .mt-2 { margin-top: 2rem; }
-    .mt-3 { margin-top: 3rem; }
-    .mb-1 { margin-bottom: 1rem; }
-    .mb-2 { margin-bottom: 2rem; }
-    .mb-3 { margin-bottom: 3rem; }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+
     <nav class="navbar">
         <a href="#" class="logo">
-            <i data-lucide="layers"></i>
-            Cabinet of Selves
+            <i data-lucide="gem"></i> <span data-i18n="navbar-logo">Cabinet of Selves</span>
         </a>
         <div class="nav-links">
-            <a href="#pricing">Purchase</a>
-            <a href="#ifs-intro">Science</a>
-            <a href="#features">Discovery</a>
-            <a href="#visualization">Visualization</a>
-            <a href="#how-it-works">Process</a>
-            <a href="#app-screenshots">Journey</a>
-            <a href="#testimonials">Experiences</a>
-            <a href="#faq">Wisdom</a>
-            <a href="https://tempestlabs.space/turkish/product-cabinet.html">Türkçe</a>
-           <a href="https://tempestlabs.space/german.html">Deutsch</a>
+            <a href="#hero" data-i18n="nav-home">Home</a>
+            <a href="#ifs-intro" data-i18n="nav-about">About IFS</a>
+            <a href="#features" data-i18n="nav-features">Features</a>
+            <a href="#how-it-works" data-i18n="nav-how-it-works">How It Works</a>
+            <a href="#pricing" data-i18n="nav-pricing">Pricing</a>
+            <a href="#testimonials" data-i18n="nav-testimonials">Testimonials</a>
+            <a href="#faq" data-i18n="nav-faq">FAQ</a>
+            <div class="language-switcher">
+                <select id="language-select">
+                    <option value="en" selected>English</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                    </select>
+            </div>
         </div>
-        <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <button class="mobile-menu-btn" aria-label="Toggle mobile menu">
             <i data-lucide="menu"></i>
         </button>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
+    <div class="video-modal" id="videoModal">
+        <div class="video-content">
+            <span class="video-close" data-lucide="x"></span>
+            <div class="video-wrapper">
+                <iframe id="youtube-video" width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <section class="hero" id="hero">
+            <div class="container hero-content">
                 <div class="hero-text animate__animated animate__fadeInLeft">
-                    <h1>A Cabinet of Selves Awaits Within You</h1>
-                    <p>Discover your hidden aspects. Listen to forgotten voices. Reclaim your psychological wholeness through the Internal Family Systems approach.</p>
+                    <h1 data-i18n="hero-title">Unlock Your Inner Harmony with Cabinet of Selves</h1>
+                    <p data-i18n="hero-subtitle">A revolutionary tool based on Internal Family Systems (IFS) to help you explore, understand, and integrate your inner world.</p>
                     <div class="hero-buttons">
-                       <a href="https://tempestlabs.space/paytment.html" target="_blank">
-                            <button class="btn btn-primary animate-float">
-                                <i data-lucide="compass"></i> Begin Your Journey
-                            </button>
-                        </a>
-                        <button class="btn btn-secondary" id="openVideo">
-                            <i data-lucide="play-circle"></i> Explore the Product
-                        </button>
+                        <a href="#features" class="btn btn-primary" data-i18n="hero-btn-learn-more">Learn More <i data-lucide="arrow-right"></i></a>
+                        <a href="#pricing" class="btn btn-secondary" data-i18n="hero-btn-get-started">Get Started <i data-lucide="rocket"></i></a>
                     </div>
                 </div>
                 <div class="hero-image-container animate__animated animate__fadeInRight">
-                    <img src="/images/peoplen.webp" alt="People discovering their inner selves" class="hero-image">
+                    <img src="https://via.placeholder.com/600x600?text=IFS+Concept" alt="Illustration of IFS concept" class="hero-image">
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- IFS Introduction Section -->
-    <section id="ifs-intro" class="ifs-intro">
-        <div class="container">
-            <div class="ifs-content">
-                <div class="ifs-text">
-                    <h2>The Science of Selves</h2>
-                    <p>Internal Family Systems (IFS) is an evidence-based psychotherapy approach developed by Dr. Richard Schwartz in the 1980s. It recognizes the mind as naturally multiple - composed of sub-personalities, each with valuable qualities.</p>
-                    <p>IFS therapy helps individuals access their Self - the calm, curious, compassionate center of consciousness that can heal wounded parts and restore inner harmony.</p>
-                    <p>Cabinet of Selves adapts these clinical insights into a structured self-discovery tool to help you map your internal system independent of therapy.</p>
-                    <p class="text-gold"><strong>Important:</strong> This is not a therapy alternative. For clinical issues, we recommend working with <a href="https://ifs-institute.com/find-a-therapist" target="_blank" style="color: var(--sacred-gold); text-decoration: underline;">an IFS-trained therapist</a>.</p>
+        <section class="ifs-intro" id="ifs-intro">
+            <div class="container ifs-content">
+                <div class="ifs-image-container animate__animated animate__fadeInUp">
+                    <img src="https://via.placeholder.com/600x400?text=IFS+Therapy" alt="Internal Family Systems Therapy Illustration" class="ifs-image">
                 </div>
-                <div>
-                    <img src="/images/cabin2.webp" alt="IFS therapy visualization" class="ifs-image">
+                <div class="ifs-text animate__animated animate__fadeInRight">
+                    <h2 data-i18n="ifs-intro-title">What is Internal Family Systems (IFS)?</h2>
+                    <p data-i18n="ifs-intro-p1">Internal Family Systems (IFS) is a powerfully transformative, evidence-based psychotherapy model developed by Richard C. Schwartz, Ph.D. It offers a clear, non-pathologizing, and empowering way of understanding human consciousness.</p>
+                    <p data-i18n="ifs-intro-p2">IFS suggests that our minds are naturally multiple, not just as a result of trauma or mental illness, but as a normal and healthy aspect of human experience. We all have an "internal family" of parts—sub-personalities with their own unique qualities, beliefs, and emotions.</p>
+                    <a href="#" class="btn btn-secondary video-trigger" data-video-id="VIDEO_ID_FOR_IFS_EXPLANATION" data-i18n="ifs-intro-btn-watch-video">Watch Explainer Video <i data-lucide="play-circle"></i></a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-<!-- Features Section -->
-<section id="features" class="features">
-    <div class="container">
-        <div class="section-header">
-            <h2>Pathways of Discovery</h2>
-            <p>Clinical tools adapted for personal psychological exploration</p>
-        </div>
-        <div class="features-grid">
-            <div class="feature-card animate__animated animate__fadeInUp">
-                <div class="feature-icon">
-                    <i data-lucide="heart-pulse"></i>
+        <section class="features" id="features">
+            <div class="container">
+                <div class="section-header animate__animated animate__fadeInUp">
+                    <h2 data-i18n="features-title">Core Features of Cabinet of Selves</h2>
                 </div>
-                <h3>Parts Mapping</h3>
-                <p>Identify and document your internal family of sub-personalities using IFS-based prompts—then map their relationships to see alliances, conflicts, and patterns.</p>
-            </div>
-            <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
-                <div class="feature-icon">
-                    <i data-lucide="brain"></i>
-                </div>
-                <h3>Self Leadership</h3>
-                <p>Strengthen your core Self and develop the 8 C's: curiosity, calm, clarity, compassion, confidence, courage, creativity, and connection.</p>
-            </div>
-            <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
-                <div class="feature-icon">
-                    <i data-lucide="book-open-text"></i>
-                </div>
-                <h3>Guided Reflection</h3>
-                <p>Journal through carefully designed prompts to unblend from parts and hold internal conversations with calm Self-energy.</p>
-            </div>
-            <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
-                <div class="feature-icon">
-                    <i data-lucide="puzzle"></i>
-                </div>
-                <h3>System Visualization</h3>
-                <p>Use visual mapping tools to explore how your parts interact—building a clearer picture of your inner system's dynamics and relationships.</p>
-            </div>
-            <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 0.8s;">
-                <div class="feature-icon">
-                    <i data-lucide="palette"></i>
-                </div>
-                <h3>Art Therapy</h3>
-                <p>Express the inexpressible. Choose your mood, select active parts, and engage with curated artwork to access emotional insights through visual symbolism.</p>
-            </div>
-            <div class="feature-card animate__animated animate__fadeInUp" style="animation-delay: 1s;">
-                <div class="feature-icon">
-                    <i data-lucide="bar-chart-2"></i>
-                </div>
-                <h3>Mood Insights</h3>
-                <p>Track your emotional journey with features like Mood Distribution, Feeling Frequency, Active Parts, and personal check-in history—all downloadable as a PDF.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-    <!-- Visualization Importance Section -->
-    <section id="visualization" class="visualization-section">
-        <div class="container">
-            <div class="visualization-content">
-                <div>
-                    <img src="/images/visualization.webp" alt="Mind visualization techniques" class="visualization-image">
-                </div>
-                <div class="ifs-text">
-                    <h2>The Power of Visualization</h2>
-                    <p>Visualization is a powerful therapeutic tool that bridges conscious and unconscious processes, enabling deeper self-understanding and integration.</p>
-                    
-                    <h3 class="mt-2">Self-Concept Discovery</h3>
-                    <p>Visualization helps individuals mentally simulate different scenarios, understand various aspects of self, and integrate them. By creating mental images of our internal parts, we can interact with them more directly and compassionately.</p>
-                    
-                    <h3 class="mt-2">Therapeutic Techniques</h3>
-                    <p>Practices like guided imagery help individuals confront and reconcile conflicting parts of identity, developing a harmonious self-concept. Research shows visualization activates the same neural networks as real experiences, making it a powerful tool for psychological change.</p>
-                    
-                    <p class="text-gold mt-2"><strong>Our Approach:</strong> Cabinet of Selves offers structured visualization exercises based on clinical IFS techniques to help you safely explore your inner world.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-<!-- YouTube Shorts Video Section -->
-<section id="video-demo" class="pwa-install">
-    <div class="container">
-        <div class="section-header">
-            <h2>See It In Action</h2>
-            <p>Watch a quick demonstration of the Cabinet of Selves experience</p>
-        </div>
-        <div class="video-demo-container" style="max-width: 800px; margin: 0 auto;">
-            <div class="video-wrapper thumbnail-hover" style="position: relative; padding-bottom: 177.78%; height: 0; overflow: hidden; border-radius: 0.5rem; box-shadow: 0 15px 30px rgba(0,0,0,0.2); border: 1px solid var(--border-color); transition: transform 0.3s ease;">
-                <img src="/images/thumthum.webp" alt="Watch Demo" 
-                     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 0.5rem; cursor: pointer; transition: opacity 0.3s ease;" 
-                     onclick="openShortsVideoModal()" 
-                     onmouseover="this.style.opacity='0.85'" 
-                     onmouseout="this.style.opacity='1'" />
-                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2;">
-                    <button class="btn btn-secondary" style="font-size: 1.2rem;" onclick="openShortsVideoModal()">
-                        <i data-lucide='play-circle'></i> Watch Demo
-                    </button>
-                </div>
-            </div>
-            <div class="text-center mt-3">
-                <p>This short demo shows the core functionality of the Cabinet of Selves tool.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
-    
-    <!-- Multilingual Section -->
-    <section id="multilingual" class="multilingual-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Available in Your Language</h2>
-                <p>Psychological exploration without language barriers</p>
-            </div>
-            <div class="language-cards">
-                <div class="language-card">
-                    <div class="language-flag">
-                        🇬🇧
+                <div class="features-grid">
+                    <div class="feature-card animate__animated animate__fadeInUp" data-wow-delay="0.1s">
+                        <div class="feature-icon"><i data-lucide="layout-grid"></i></div>
+                        <h3 data-i18n="feature1-title">Interactive Part Mapping</h3>
+                        <p data-i18n="feature1-description">Visualize your inner landscape. Map your different parts, understand their roles, and see how they interact.</p>
                     </div>
-                    <h3>English</h3>
-                </div>
-                <div class="language-card">
-                    <div class="language-flag">
-                        🇩🇪
+                    <div class="feature-card animate__animated animate__fadeInUp" data-wow-delay="0.2s">
+                        <div class="feature-icon"><i data-lucide="compass"></i></div>
+                        <h3 data-i18n="feature2-title">Self-Guided Exercises</h3>
+                        <p data-i18n="feature2-description">Engage with guided meditations and journaling prompts designed to foster self-compassion and inner dialogue.</p>
                     </div>
-                    <h3>German</h3>
-                </div>
-                <div class="language-card">
-                    <div class="language-flag">
-                        🇹🇷
+                    <div class="feature-card animate__animated animate__fadeInUp" data-wow-delay="0.3s">
+                        <div class="feature-icon"><i data-lucide="leaf"></i></div>
+                        <h3 data-i18n="feature3-title">Emotional Tracking</h3>
+                        <p data-i18n="feature3-description">Monitor your emotional states over time and identify patterns in your internal system.</p>
                     </div>
-                    <h3>Turkish</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <a href="https://tempestlabs.space/paytment.html" target="_blank" style="text-decoration: none; color: inherit;">
-    <section id="pricing" class="pricing">
-        <div class="container">
-            <div class="section-header">
-                <h2>Choose Your Journey</h2>
-                <p>Simple, transparent pricing to support your psychological exploration</p>
-            </div>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3 class="pricing-name">Explorer</h3>
-                    <div class="pricing-price">$9.99<span class="pricing-period">One time payment</span></div>
-                    <ul class="pricing-features">
-                        <li><i data-lucide="check"></i> Basic parts mapping</li>
-                        <li><i data-lucide="check"></i> Simple system visualization</li>
-                        <li><i data-lucide="check"></i> Local data storage only</li>
-                        <li><i data-lucide="check"></i> PDF export feature</li>
-                    </ul>
-                    <div class="btn btn-secondary pricing-button">Start Exploring</div>
-                </div>            
-            </div>
-        </div>
-    </section>
-    </a>
-
-    <!-- How It Works Section -->
-    <section id="how-it-works" class="how-it-works">
-        <div class="container">
-            <div class="section-header">
-                <h2>The Therapeutic Process</h2>
-                <p>A structured approach to psychological integration</p>
-            </div>
-            <div class="steps-container">
-                <div class="step-card">
-                    <div class="step-number">1</div>
-                    <h3>Identify</h3>
-                    <p>Recognize different parts with their thoughts, emotions, and bodily signals using IFS differentiation techniques.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">2</div>
-                    <h3>Unblend</h3>
-                    <p>Create psychological space between your Self and active parts using therapeutic distancing methods.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">3</div>
-                    <h3>Witness</h3>
-                    <p>With Self-energy, compassionately listen to each part's story and protective role in your system.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">4</div>
-                    <h3>Integrate</h3>
-                    <p>Establish healing dialogues between Self and parts, allowing each to transform and assume healthier roles.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- App Screenshots Section -->
-    <section id="app-screenshots" class="app-screenshots">
-        <div class="container">
-            <div class="section-header">
-                <h2>Your Psychological Journey</h2>
-                <p>Explore the therapeutic landscape of your inner world</p>
-            </div>
-            <div class="swiper">
-                <div class="swiper-wrapper">
-                       <div class="swiper-slide">
-                        <img src="/images/cabin1.webp" alt="AI-powered insights">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="/images/cabin3.webp" alt="Parts mapping interface">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="/images/cabin4.webp" alt="Self-energy development">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="/images/cabin5.webp" alt="System visualization">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="/images/cabin6.webp" alt="Healing progress tracking">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="/images/cabin2.webp" alt="AI-powered insights">
-                    </div>
-                </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <h2>Potential Healing Journeys</h2>
-                <p>How this approach could transform your internal relationships</p>
-            </div>
-            <div class="testimonial-slider">
-                <div class="testimonial-card active">
-                    <p class="testimonial-quote">That critical voice inside you is actually a protector trying to shield you from rejection. When you understand its positive intent, you can help it find healthier ways to protect you.</p>
-                    <div class="testimonial-author">Inner Critic Transformation</div>
-                    <div class="testimonial-role">From judgment to wise guidance</div>
-                </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-quote">Your anger may be a firefighter part trying to protect a vulnerable inner child. When you listen to it with compassion, the wounds it guards can emerge.</p>
-                    <div class="testimonial-author">Anger as Protection</div>
-                    <div class="testimonial-role">From outbursts to healthy boundaries</div>
-                </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-quote">Your perfectionist isn't an enemy - it's a manager working overtime to protect you from shame. When you appreciate its efforts, it can relax its impossible standards.</p>
-                    <div class="testimonial-author">Perfectionist Integration</div>
-                    <div class="testimonial-role">From rigid control to healthy striving</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Data Visualization Section -->
-    <section id="data-viz" class="data-viz">
-        <div class="container">
-            <div class="section-header">
-                <h2>Mapping Your Psychology</h2>
-                <p>Track your progress in developing greater happiness and wellbeing</p>
-            </div>
-            <div class="viz-container">
-                <div class="viz-card">
-                    <canvas id="happinessChart" width="400" height="400"></canvas>
-                </div>
-            </div>
-            <div class="text-center mt-3">
-                <p><strong>Your data remains private:</strong></p>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section id="faq" class="faq">
-        <div class="container">
-            <div class="section-header">
-                <h2>Psychological Guidance</h2>
-                <p>Answers to your therapeutic questions</p>
-            </div>
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Is this a therapy alternative?</span>
-                        <i data-lucide="chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>No. Cabinet of Selves is designed as a self-help tool based on therapeutic principles, but does not replace professional mental health services. For clinical issues, we recommend working with <a href="https://ifs-institute.com/find-a-therapist" target="_blank">an IFS-trained therapist</a>.</p>
-                        <p class="mt-2"><strong>Important Note:</strong> We are not therapists. This tool complements therapy, it doesn't replace it.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>How is this different from journaling?</span>
-                        <i data-lucide="chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>While journaling is valuable, our tool offers structured clinical protocols from IFS therapy. Mapping and visualization tools help you see systemic relationships between parts that traditional journaling might miss.</p>
-                        <p class="mt-2">We also use <strong>DeepSeek's AI API</strong> to provide insights while protecting your privacy - all processing happens locally on your device.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Is my psychological data secure?</span>
-                        <i data-lucide="chevron-down"></i>
-                    </div>
-
-               <div class="faq-answer">
-    <p>Your parts are safely stored in our database, so you can access and manage them across devices. This makes it easy to stay connected to your inner system, no matter where you log in.</p>
-    <p class="mt-2">For daily check-ins and journaling, we use <strong>local storage only</strong> — your reflections stay on your device and are never uploaded. You can export them anytime as a PDF for personal use or to share with a therapist.</p>
-    <p class="mt-2">If you choose to use the AI therapist feature, it’s powered by the <strong>DeepSeek API</strong>, ensuring advanced but secure interaction without requiring an account.</p>
-    <p class="mt-2">You always stay in control: a single click lets you delete all local data if you ever want a fresh start.</p>
-</div>
-
-
-                    
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>What if I encounter difficult emotions?</span>
-                        <i data-lucide="chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>The tool includes grounding exercises and pacing protocols. However, if you encounter overwhelming material, we recommend pausing your work and consulting a mental health professional before continuing.</p>
-                        <p class="mt-2">Remember: This is a <strong>self-discovery tool</strong>, not a therapeutic intervention. Proceed at your own pace.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Can I use this alongside therapy?</span>
-                        <i data-lucide="chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Many therapists recommend using Cabinet of Selves to enhance clinical work. You can share your maps and insights with your therapist to enrich your sessions. Always follow your therapist's guidance.</p>
-                        <p class="mt-2">We specifically provide PDF export for this purpose - to facilitate communication between you and your mental health professional.</p>
+                    <div class="feature-card animate__animated animate__fadeInUp" data-wow-delay="0.4s">
+                        <div class="feature-icon"><i data-lucide="shield-check"></i></div>
+                        <h3 data-i18n="feature4-title">Integration Progress</h3>
+                        <p data-i18n="feature4-description">Track your journey towards greater internal harmony and see your progress as parts integrate.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <h2>Begin Your Psychological Integration</h2>
-            <p>Join those who have discovered greater wholeness by understanding their internal systems</p>
-            <div class="cta-buttons">
-                <a href="https://tempestlabs.space/paytment.html" target="_blank" class="btn btn-primary">Start My Journey</a>
-                <button class="btn btn-secondary" id="openVideo2">Watch Demo</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- PWA Installation Section -->
-    <section id="pwa-install" class="pwa-install">
-        <div class="container">
-            <div class="section-header">
-                <h2>Continue Your Journey Anywhere</h2>
-                <p>Install as a progressive web app for continuous access to your psychological work</p>
-            </div>
-            <div class="pwa-steps">
-                <div class="pwa-step">
-                    <h3><i data-lucide="smartphone"></i> iOS (iPhone/iPad)</h3>
-                    <ol>
-                        <li>Open Cabinet of Selves in Safari</li>
-                        <li>Tap the Share button (box with upward arrow)</li>
-                        <li>Select "Add to Home Screen"</li>
-                        <li>Name the app and tap "Add"</li>
-                    </ol>
+        <section class="visualization-section">
+            <div class="container visualization-content">
+                <div class="visualization-text animate__animated animate__fadeInLeft">
+                    <h2 data-i18n="visualization-title">The Importance of Visualization</h2>
+                    <p data-i18n="visualization-p1">In IFS, visualizing your internal parts can significantly deepen your understanding and connection with them. Cabinet of Selves provides an intuitive interface to help you do just that.</p>
+                    <p data-i18n="visualization-p2">By creating visual representations, you can more easily identify, communicate with, and ultimately heal your inner landscape. This process makes abstract psychological concepts tangible and actionable.</p>
                 </div>
-                <div class="pwa-step">
-                    <h3><i data-lucide="smartphone"></i> Android</h3>
-                    <ol>
-                        <li>Open Cabinet of Selves in Chrome</li>
-                        <li>Tap the menu (three dots in top right)</li>
-                        <li>Select "Install App" or "Add to Home Screen"</li>
-                        <li>Confirm installation if prompted</li>
-                    </ol>
-                </div>
-                <div class="pwa-step">
-                    <h3><i data-lucide="monitor"></i> Desktop (Windows/Mac/Linux)</h3>
-                    <ol>
-                        <li>Open Cabinet of Selves in Chrome, Edge or Firefox</li>
-                        <li>Look for the install prompt in the address bar</li>
-                        <li>Click to install the app</li>
-                        <li>If prompt doesn't appear, check "Install" in browser menu</li>
-                    </ol>
+                <div class="visualization-image-container animate__animated animate__fadeInRight">
+                    <img src="https://via.placeholder.com/600x400?text=Visualization+Concept" alt="Visualization of inner parts" class="visualization-image">
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
+        <section class="multilingual-section">
+            <div class="container">
+                <div class="section-header animate__animated animate__fadeInUp">
+                    <h2 data-i18n="multilingual-title">Available in Multiple Languages</h2>
+                    <p data-i18n="multilingual-subtitle">Cabinet of Selves is designed to be accessible worldwide, offering support in various languages to cater to a global audience.</p>
+                </div>
+                <div class="language-cards">
+                    <div class="language-card animate__animated animate__fadeInUp" data-wow-delay="0.1s">
+                        <div class="language-flag">🇬🇧</div>
+                        <h3 data-i18n="lang-english">English</h3>
+                        <p data-i18n="lang-english-desc">Standard language support.</p>
+                    </div>
+                    <div class="language-card animate__animated animate__fadeInUp" data-wow-delay="0.2s">
+                        <div class="language-flag">🇪🇸</div>
+                        <h3 data-i18n="lang-spanish">Spanish</h3>
+                        <p data-i18n="lang-spanish-desc">Comprehensive support for Spanish speakers.</p>
+                    </div>
+                    <div class="language-card animate__animated animate__fadeInUp" data-wow-delay="0.3s">
+                        <div class="language-flag">🇫🇷</div>
+                        <h3 data-i18n="lang-french">French</h3>
+                        <p data-i18n="lang-french-desc">Full translation available.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing" id="pricing">
+            <div class="container">
+                <div class="section-header animate__animated animate__fadeInUp">
+                    <h2 data-i18n="pricing-title">Flexible Plans for Your Journey</h2>
+                    <p data-i18n="pricing-subtitle">Choose the plan that best suits your needs for psychological integration and healing.</p>
+                </div>
+                <div class="features-grid"> <div class="pricing-card animate__animated animate__fadeInUp" data-wow-delay="0.1s">
+                        <h3 class="pricing-name" data-i18n="plan-basic-name">Basic Plan</h3>
+                        <div class="pricing-price">
+                            <span data-i18n="currency-symbol">$</span>0<span class="pricing-period" data-i18n="plan-free-period">/month</span>
+                        </div>
+                        <ul class="pricing-features">
+                            <li data-i18n="plan-basic-feature1"><i data-lucide="check"></i> Limited Part Mapping</li>
+                            <li data-i18n="plan-basic-feature2"><i data-lucide="check"></i> 3 Guided Meditations</li>
+                            <li data-i18n="plan-basic-feature3"><i data-lucide="check"></i> Basic Journaling</li>
+                            <li data-i18n="plan-basic-feature4" class="text-muted"><i data-lucide="x"></i> Emotional Trend Analytics</li>
+                            <li data-i18n="plan-basic-feature5" class="text-muted"><i data-lucide="x"></i> Priority Support</li>
+                        </ul>
+                        <button class="btn btn-secondary pricing-button" data-i18n="plan-basic-btn">Start Free</button>
+                    </div>
+
+                    <div class="pricing-card featured animate__animated animate__fadeInUp" data-wow-delay="0.2s">
+                        <h3 class="pricing-name" data-i18n="plan-premium-name">Premium Plan</h3>
+                        <div class="pricing-price">
+                            <span data-i18n="currency-symbol">$</span>9.99<span class="pricing-period" data-i18n="plan-monthly-period">/month</span>
+                        </div>
+                        <ul class="pricing-features">
+                            <li data-i18n="plan-premium-feature1"><i data-lucide="check"></i> Unlimited Part Mapping</li>
+                            <li data-i18n="plan-premium-feature2"><i data-lucide="check"></i> Full Meditation Library</li>
+                            <li data-i18n="plan-premium-feature3"><i data-lucide="check"></i> Advanced Journaling</li>
+                            <li data-i18n="plan-premium-feature4"><i data-lucide="check"></i> Emotional Trend Analytics</li>
+                            <li data-i18n="plan-premium-feature5"><i data-lucide="check"></i> Email Support</li>
+                        </ul>
+                        <button class="btn btn-primary pricing-button" data-i18n="plan-premium-btn">Choose Premium</button>
+                    </div>
+
+                    <div class="pricing-card animate__animated animate__fadeInUp" data-wow-delay="0.3s">
+                        <h3 class="pricing-name" data-i18n="plan-pro-name">Pro Plan</h3>
+                        <div class="pricing-price">
+                            <span data-i18n="currency-symbol">$</span>19.99<span class="pricing-period" data-i18n="plan-monthly-period">/month</span>
+                        </div>
+                        <ul class="pricing-features">
+                            <li data-i18n="plan-pro-feature1"><i data-lucide="check"></i> All Premium Features</li>
+                            <li data-i18n="plan-pro-feature2"><i data-lucide="check"></i> Personalized Insights</li>
+                            <li data-i18n="plan-pro-feature3"><i data-lucide="check"></i> Dedicated Onboarding</li>
+                            <li data-i18n="plan-pro-feature4"><i data-lucide="check"></i> Priority Chat Support</li>
+                            <li data-i18n="plan-pro-feature5"><i data-lucide="check"></i> Early Access to New Features</li>
+                        </ul>
+                        <button class="btn btn-secondary pricing-button" data-i18n="plan-pro-btn">Go Pro</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-it-works" id="how-it-works">
+            <div class="container">
+                <div class="section-header animate__animated animate__fadeInUp">
+                    <h2 data-i18n="how-it-works-title">How Cabinet of Selves Works</h2>
+                    <p data-i18n="how-it-works-subtitle">Our intuitive process guides you through self-discovery step by step.</p>
+                </div>
+                <div class="steps-container">
+                    <div class="step-card animate__animated animate__fadeInUp" data-wow-delay="0.1s">
+                        <div class="step-number">1</div>
+                        <h3 data-i18n="step1-title">Identify Your Parts</h3>
+                        <p data-i18n="step1-description">Begin by recognizing the various thoughts, feelings, and beliefs that make up your inner system.</p>
+                    </div>
+                    <div class="step-card animate__animated animate__fadeInUp" data-wow-delay="0.2s">
+                        <div class="step-number">2</div>
+                        <h3 data-i18n="step2-title">Understand Their Roles</h3>
+                        <p data-i18n="step2-description">Explore what each part's intention is and how it tries to protect you, even if its methods are unhelpful.</p>
+                    </div>
+                    <div class="step-card animate__animated animate__fadeInUp" data-wow-delay="0.3s">
+                        <div class="step-number">3</div>
+                        <h3 data-i18n="step3-title">Access Self-Energy</h3>
+                        <p data-i18n="step3-description">Learn to connect with your core Self, a source of compassion, curiosity, and calm, to lead your system.</p>
+                    </div>
+                    <div class="step-card animate__animated animate__fadeInUp" data-wow-delay="0.4s">
+                        <div class="step-number">4</div>
+                        <h3 data-i18n="step4-title">Heal and Integrate</h3>
+                        <p data-i18n="step4-description">Facilitate dialogue between your Self and your parts, releasing their burdens and fostering inner harmony.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="app-screenshots">
+            <div class="container">
+                <div class="section-header animate__animated animate__fadeInUp">
+                    <h2 data-i18n="screenshots-title">App Screenshots</h2>
+                    <p data-i18n="screenshots-subtitle">Get a glimpse of the intuitive interface and powerful features.</p>
+                </div>
+                <div class="swiper mySwiper animate__animated animate__fadeIn">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="https://via.placeholder.com/600x400?text=Screenshot+1" alt="App Screenshot 1"></div>
+                        <div class="swiper-slide"><img src="https://via.placeholder.com/600x400?text=Screenshot+2" alt="App Screenshot 2"></div>
+                        <div class="swiper-slide"><img src="https://via.placeholder.com/600x400?text=Screenshot+3" alt="App Screenshot 3"></div>
+                        <div class="swiper-slide"><img src="https://via.placeholder.com/600x400?text=Screenshot+4" alt="App Screenshot 4"></div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials" id="testimonials">
+            <div class="container">
+                <div class="section-header animate__animated animate__fadeInUp">
+                    <h2 data-i18n="testimonials-title">What Our Users Say</h2>
+                    <p data-i18n="testimonials-subtitle">Hear from individuals who have found clarity and healing with Cabinet of Selves.</p>
+                </div>
+                <div class="testimonial-slider animate__animated animate__fadeInUp">
+                    <div class="testimonial-card active" data-testimonial-id="1">
+                        <p class="testimonial-quote" data-i18n="testimonial1-quote">"Cabinet of Selves transformed my understanding of my inner world. The part mapping feature is incredibly insightful!"</p>
+                        <p class="testimonial-author" data-i18n="testimonial1-author">— Alex J.</p>
+                        <p class="testimonial-role" data-i18n="testimonial1-role">User since 2023</p>
+                    </div>
+                    <div class="testimonial-card" data-testimonial-id="2">
+                        <p class="testimonial-quote" data-i18n="testimonial2-quote">"I've tried many mindfulness apps, but this one truly stands out with its IFS approach. Highly recommend for anyone on a healing journey."</p>
+                        <p class="testimonial-author" data-i18n="testimonial2-author">— Maria P.</p>
+                        <p class="testimonial-role" data-i18n="testimonial2-role">Psychology Student</p>
+                    </div>
+                    <div class="testimonial-card" data-testimonial-id="3">
+                        <p class="testimonial-quote" data-i18n="testimonial3-quote">"The guided exercises helped me connect with parts I didn't even know existed. It's a profound and gentle tool."</p>
+                        <p class="testimonial-author" data-i18n="testimonial3-author">— David L.</p>
+                        <p class="testimonial-role" data-i18n="testimonial3-role">Therapist</p>
+                    </div>
+                </div>
+                <div class="swiper-pagination testimonial-pagination"></div>
+            </div>
+        </section>
+
+        <section class="data-viz">
+            <div class="container">
+                <div class="section-header animate__animated animate__fadeInUp">
+                    <h2 data-i18n="data-viz-title">Visualize Your Progress</h2>
+                    <p data-i18n="data-viz-subtitle">See your emotional and psychological shifts over time with our integrated data visualization.</p>
+                </div>
+                <div class="viz-container animate__animated animate__fadeInUp">
+                    <div class="viz-card">
+                        <h3 data-i18n="chart-title-mood">Mood Trends Over Time</h3>
+                        <canvas id="moodChart"></canvas>
+                    </div>
+                    <div class="viz-card">
+                        <h3 data-i18n="chart-title-part-activity">Part Activity Distribution</h3>
+                        <canvas id="partActivityChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq" id="faq">
+            <div class="container">
+                <div class="section-header animate__animated animate__fadeInUp">
+                    <h2 data-i18n="faq-title">Frequently Asked Questions</h2>
+                    <p data-i18n="faq-subtitle">Find answers to common questions about Cabinet of Selves and IFS.</p>
+                </div>
+                <div class="faq-container animate__animated animate__fadeInUp">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span data-i18n="faq1-q">Is Cabinet of Selves a substitute for therapy?</span>
+                            <i data-lucide="chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="faq1-a">No, Cabinet of Selves is a self-help tool designed to complement therapeutic work, not replace it. It can be a great adjunct to IFS therapy or a resource for personal exploration.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span data-i18n="faq2-q">Do I need to know IFS to use this app?</span>
+                            <i data-lucide="chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="faq2-a">Not at all! Our app is designed to introduce IFS concepts in an accessible way, with guided exercises and clear explanations for beginners.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span data-i18n="faq3-q">Is my data private and secure?</span>
+                            <i data-lucide="chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="faq3-a">Absolutely. We prioritize your privacy and data security. All your information is encrypted and stored securely. Please refer to our Privacy Policy for more details.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span data-i18n="faq4-q">What devices is the app compatible with?</span>
+                            <i data-lucide="chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p data-i18n="faq4-a">Cabinet of Selves is a Progressive Web App (PWA), meaning it works across all modern browsers on desktop and mobile devices. You can install it directly from your browser.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="container">
+                <h2 data-i18n="cta-title">Ready to Begin Your Journey of Self-Discovery?</h2>
+                <p data-i18n="cta-subtitle">Start exploring your inner world today and foster greater harmony and well-being.</p>
+                <div class="cta-buttons">
+                    <a href="#pricing" class="btn btn-primary btn-lg" data-i18n="cta-btn-start-now">Start Now <i data-lucide="sparkles"></i></a>
+                    <a href="#how-it-works" class="btn btn-secondary btn-lg" data-i18n="cta-btn-learn-more">Learn More <i data-lucide="info"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="pwa-install">
+            <div class="container">
+                <div class="section-header animate__animated animate__fadeInUp">
+                    <h2 data-i18n="pwa-title">Install Cabinet of Selves as an App</h2>
+                    <p data-i18n="pwa-subtitle">Enjoy a seamless app experience directly from your browser, no app store needed.</p>
+                </div>
+                <div class="pwa-steps">
+                    <div class="pwa-step animate__animated animate__fadeInUp" data-wow-delay="0.1s">
+                        <h3><i data-lucide="monitor"></i> <span data-i18n="pwa-desktop-title">On Desktop (Chrome/Edge):</span></h3>
+                        <p data-i18n="pwa-desktop-desc">Look for the "Install" icon (often a plus sign or computer icon) in your browser's address bar and click to install.</p>
+                    </div>
+                    <div class="pwa-step animate__animated animate__fadeInUp" data-wow-delay="0.2s">
+                        <h3><i data-lucide="smartphone"></i> <span data-i18n="pwa-android-title">On Android (Chrome):</span></h3>
+                        <p data-i18n="pwa-android-desc">Open the browser menu (three dots) and select "Add to Home screen" or "Install app".</p>
+                    </div>
+                    <div class="pwa-step animate__animated animate__fadeInUp" data-wow-delay="0.3s">
+                        <h3><i data-lucide="smartphone"></i> <span data-i18n="pwa-ios-title">On iOS (Safari):</span></h3>
+                        <p data-i18n="pwa-ios-desc">Tap the Share button <i data-lucide="share"></i> at the bottom of the screen, then scroll down and tap "Add to Home Screen".</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-about">
-                    <a href="#" class="footer-logo">
-                        <i data-lucide="layers"></i>
-                        Cabinet of Selves
-                    </a>
-                    <p>A psychological tool for inner exploration based on Internal Family Systems therapy principles.</p>
-                    <p><strong>Note:</strong> This is not therapy. We provide tools to complement therapeutic work.</p>
+                    <a href="#" class="footer-logo" data-i18n="footer-logo">Cabinet of Selves</a>
+                    <p data-i18n="footer-about-text">Empowering your journey of psychological integration and emotional healing through the Internal Family Systems model.</p>
                     <div class="social-links">
-                        <a href="https://www.linkedin.com/company/tempestlabsofficial/" class="social-link"><i data-lucide="linkedin"></i></a>
-                        <a href="https://www.instagram.com/tempestlabsofficial/" class="social-link"><i data-lucide="instagram"></i></a>
-                        <a href="https://www.tiktok.com/@cabinetofselves" class="social-link"><i data-lucide="tiktok"></i></a>
+                        <a href="#" class="social-link" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
                     </div>
                 </div>
                 <div class="footer-links">
-                    <h3>Resources</h3>
+                    <h3 data-i18n="footer-links-quick">Quick Links</h3>
                     <ul>
-                        <li><a href="https://ifs-institute.com/" target="_blank"><i data-lucide="file-text"></i> IFS Research</a></li>
-                        <li><a href="https://ifs-institute.com/resources/research" target="_blank"><i data-lucide="library-big"></i> Psychology Studies</a></li>
+                        <li><a href="#features" data-i18n="footer-link-features"><i data-lucide="chevron-right"></i> Features</a></li>
+                        <li><a href="#pricing" data-i18n="footer-link-pricing"><i data-lucide="chevron-right"></i> Pricing</a></li>
+                        <li><a href="#how-it-works" data-i18n="footer-link-how-it-works"><i data-lucide="chevron-right"></i> How It Works</a></li>
+                        <li><a href="#faq" data-i18n="footer-link-faq"><i data-lucide="chevron-right"></i> FAQ</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h3>Organization</h3>
+                    <h3 data-i18n="footer-links-resources">Resources</h3>
                     <ul>
-                        <li><a href="https://tempestlabs.space/about.html" target="_blank"><i data-lucide="info"></i> About Tempest Labs</a></li>
-                        <li><a href="mailto:contact@tempestlabs.space"><i data-lucide="mail"></i>Contact Us</a></li>
+                        <li><a href="#" data-i18n="footer-link-blog"><i data-lucide="chevron-right"></i> Blog</a></li>
+                        <li><a href="#" data-i18n="footer-link-support"><i data-lucide="chevron-right"></i> Support</a></li>
+                        <li><a href="#" data-i18n="footer-link-community"><i data-lucide="chevron-right"></i> Community</a></li>
+                        <li><a href="#" data-i18n="footer-link-ifs-info"><i data-lucide="chevron-right"></i> About IFS</a></li>
                     </ul>
                 </div>
+                <div class="footer-links">
+                    <h3 data-i18n="footer-links-contact">Contact Us</h3>
+                    <ul>
+                        <li><a href="mailto:info@cabinetofselves.com" data-i18n="footer-contact-email"><i data-lucide="mail"></i> info@cabinetofselves.com</a></li>
+                        <li><a href="tel:+1234567890" data-i18n="footer-contact-phone"><i data-lucide="phone"></i> +1 (234) 567-890</a></li>
+                        <li data-i18n="footer-contact-address"><i data-lucide="map-pin"></i> 123 Harmony Lane, Mindville, USA</li>
+                    </ul>
+                </div>
+            </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Tempest Labs. All rights reserved.</p>
+                <p data-i18n="footer-copyright">&copy; 2024 Cabinet of Selves. All rights reserved.</p>
                 <div class="legal-links">
-                    <a href="legal/membership-agreement.html"><i data-lucide="file-text"></i> Membership Agreement</a>
-                    <a href="legal/kvkk-clarification.html"><i data-lucide="shield"></i> KVKK Disclosure</a>
-                    <a href="legal/distance-sales-agreement.html"><i data-lucide="file-text"></i> Distance Sales Agreement</a>
+                    <a href="#" data-i18n="footer-link-privacy"><i data-lucide="shield"></i> Privacy Policy</a>
+                    <a href="#" data-i18n="footer-link-terms"><i data-lucide="file-text"></i> Terms of Service</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Video Modal -->
-    <div id="videoModal" class="video-modal">
-        <div class="video-content">
-            <span class="video-close" id="closeVideo">&times;</span>
-            <div class="video-wrapper">
-                <iframe id="youtubePlayer" width="100%" height="400" src="" 
-                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
-                </iframe>
-            </div>
-        </div>
-    </div>
-
-    <!-- Scripts -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
     <script>
-        // Initialize Lucide icons
+        // Initialize Lucide Icons
         lucide.createIcons();
-        
-        // Initialize happiness chart
-        const happinessCtx = document.getElementById('happinessChart').getContext('2d');
-        const happinessChart = new Chart(happinessCtx, {
-            type: 'line',
-            data: {
-                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'],
-                datasets: [{
-                    label: 'Happiness Level',
-                    data: [3.2, 3.5, 3.8, 4.2, 4.5, 4.7],
-                    borderColor: '#BBA45C',
-                    backgroundColor: 'rgba(187, 164, 92, 0.1)',
-                    borderWidth: 3,
-                    fill: true,
-                    tension: 0.3,
-                    pointBackgroundColor: '#D5A5C9',
-                    pointRadius: 5,
-                    pointHoverRadius: 7
-                }]
+
+        // Translation Data
+        const translations = {
+            en: {
+                // Navigation
+                "navbar-logo": "Cabinet of Selves",
+                "nav-home": "Home",
+                "nav-about": "About IFS",
+                "nav-features": "Features",
+                "nav-how-it-works": "How It Works",
+                "nav-pricing": "Pricing",
+                "nav-testimonials": "Testimonials",
+                "nav-faq": "FAQ",
+                "select-language": "Select Language",
+
+                // Hero Section
+                "hero-title": "Unlock Your Inner Harmony with Cabinet of Selves",
+                "hero-subtitle": "A revolutionary tool based on Internal Family Systems (IFS) to help you explore, understand, and integrate your inner world.",
+                "hero-btn-learn-more": "Learn More",
+                "hero-btn-get-started": "Get Started",
+
+                // IFS Introduction
+                "ifs-intro-title": "What is Internal Family Systems (IFS)?",
+                "ifs-intro-p1": "Internal Family Systems (IFS) is a powerfully transformative, evidence-based psychotherapy model developed by Richard C. Schwartz, Ph.D. It offers a clear, non-pathologizing, and empowering way of understanding human consciousness.",
+                "ifs-intro-p2": "IFS suggests that our minds are naturally multiple, not just as a result of trauma or mental illness, but as a normal and healthy aspect of human experience. We all have an \"internal family\" of parts—sub-personalities with their own unique qualities, beliefs, and emotions.",
+                "ifs-intro-btn-watch-video": "Watch Explainer Video",
+
+                // Features Section
+                "features-title": "Core Features of Cabinet of Selves",
+                "feature1-title": "Interactive Part Mapping",
+                "feature1-description": "Visualize your inner landscape. Map your different parts, understand their roles, and see how they interact.",
+                "feature2-title": "Self-Guided Exercises",
+                "feature2-description": "Engage with guided meditations and journaling prompts designed to foster self-compassion and inner dialogue.",
+                "feature3-title": "Emotional Tracking",
+                "feature3-description": "Monitor your emotional states over time and identify patterns in your internal system.",
+                "feature4-title": "Integration Progress",
+                "feature4-description": "Track your journey towards greater internal harmony and see your progress as parts integrate.",
+
+                // Visualization Section
+                "visualization-title": "The Importance of Visualization",
+                "visualization-p1": "In IFS, visualizing your internal parts can significantly deepen your understanding and connection with them. Cabinet of Selves provides an intuitive interface to help you do just that.",
+                "visualization-p2": "By creating visual representations, you can more easily identify, communicate with, and ultimately heal your inner landscape. This process makes abstract psychological concepts tangible and actionable.",
+
+                // Multilingual Section
+                "multilingual-title": "Available in Multiple Languages",
+                "multilingual-subtitle": "Cabinet of Selves is designed to be accessible worldwide, offering support in various languages to cater to a global audience.",
+                "lang-english": "English",
+                "lang-english-desc": "Standard language support.",
+                "lang-spanish": "Spanish",
+                "lang-spanish-desc": "Comprehensive support for Spanish speakers.",
+                "lang-french": "French",
+                "lang-french-desc": "Full translation available.",
+
+                // Pricing Section
+                "pricing-title": "Flexible Plans for Your Journey",
+                "pricing-subtitle": "Choose the plan that best suits your needs for psychological integration and healing.",
+                "plan-basic-name": "Basic Plan",
+                "currency-symbol": "$",
+                "plan-free-period": "/month",
+                "plan-basic-feature1": "Limited Part Mapping",
+                "plan-basic-feature2": "3 Guided Meditations",
+                "plan-basic-feature3": "Basic Journaling",
+                "plan-basic-feature4": "Emotional Trend Analytics",
+                "plan-basic-feature5": "Priority Support",
+                "plan-basic-btn": "Start Free",
+                "plan-premium-name": "Premium Plan",
+                "plan-monthly-period": "/month",
+                "plan-premium-feature1": "Unlimited Part Mapping",
+                "plan-premium-feature2": "Full Meditation Library",
+                "plan-premium-feature3": "Advanced Journaling",
+                "plan-premium-feature4": "Emotional Trend Analytics",
+                "plan-premium-feature5": "Email Support",
+                "plan-premium-btn": "Choose Premium",
+                "plan-pro-name": "Pro Plan",
+                "plan-pro-feature1": "All Premium Features",
+                "plan-pro-feature2": "Personalized Insights",
+                "plan-pro-feature3": "Dedicated Onboarding",
+                "plan-pro-feature4": "Priority Chat Support",
+                "plan-pro-feature5": "Early Access to New Features",
+                "plan-pro-btn": "Go Pro",
+
+                // How It Works Section
+                "how-it-works-title": "How Cabinet of Selves Works",
+                "how-it-works-subtitle": "Our intuitive process guides you through self-discovery step by step.",
+                "step1-title": "Identify Your Parts",
+                "step1-description": "Begin by recognizing the various thoughts, feelings, and beliefs that make up your inner system.",
+                "step2-title": "Understand Their Roles",
+                "step2-description": "Explore what each part's intention is and how it tries to protect you, even if its methods are unhelpful.",
+                "step3-title": "Access Self-Energy",
+                "step3-description": "Learn to connect with your core Self, a source of compassion, curiosity, and calm, to lead your system.",
+                "step4-title": "Heal and Integrate",
+                "step4-description": "Facilitate dialogue between your Self and your parts, releasing their burdens and fostering inner harmony.",
+
+                // App Screenshots Section
+                "screenshots-title": "App Screenshots",
+                "screenshots-subtitle": "Get a glimpse of the intuitive interface and powerful features.",
+
+                // Testimonials Section
+                "testimonials-title": "What Our Users Say",
+                "testimonials-subtitle": "Hear from individuals who have found clarity and healing with Cabinet of Selves.",
+                "testimonial1-quote": "\"Cabinet of Selves transformed my understanding of my inner world. The part mapping feature is incredibly insightful!\"",
+                "testimonial1-author": "— Alex J.",
+                "testimonial1-role": "User since 2023",
+                "testimonial2-quote": "\"I've tried many mindfulness apps, but this one truly stands out with its IFS approach. Highly recommend for anyone on a healing journey.\"",
+                "testimonial2-author": "— Maria P.",
+                "testimonial2-role": "Psychology Student",
+                "testimonial3-quote": "\"The guided exercises helped me connect with parts I didn't even know existed. It's a profound and gentle tool.\"",
+                "testimonial3-author": "— David L.",
+                "testimonial3-role": "Therapist",
+
+                // Data Visualization Section
+                "data-viz-title": "Visualize Your Progress",
+                "data-viz-subtitle": "See your emotional and psychological shifts over time with our integrated data visualization.",
+                "chart-title-mood": "Mood Trends Over Time",
+                "chart-title-part-activity": "Part Activity Distribution",
+
+                // FAQ Section
+                "faq-title": "Frequently Asked Questions",
+                "faq-subtitle": "Find answers to common questions about Cabinet of Selves and IFS.",
+                "faq1-q": "Is Cabinet of Selves a substitute for therapy?",
+                "faq1-a": "No, Cabinet of Selves is a self-help tool designed to complement therapeutic work, not replace it. It can be a great adjunct to IFS therapy or a resource for personal exploration.",
+                "faq2-q": "Do I need to know IFS to use this app?",
+                "faq2-a": "Not at all! Our app is designed to introduce IFS concepts in an accessible way, with guided exercises and clear explanations for beginners.",
+                "faq3-q": "Is my data private and secure?",
+                "faq3-a": "Absolutely. We prioritize your privacy and data security. All your information is encrypted and stored securely. Please refer to our Privacy Policy for more details.",
+                "faq4-q": "What devices is the app compatible with?",
+                "faq4-a": "Cabinet of Selves is a Progressive Web App (PWA), meaning it works across all modern browsers on desktop and mobile devices. You can install it directly from your browser.",
+
+                // CTA Section
+                "cta-title": "Ready to Begin Your Journey of Self-Discovery?",
+                "cta-subtitle": "Start exploring your inner world today and foster greater harmony and well-being.",
+                "cta-btn-start-now": "Start Now",
+                "cta-btn-learn-more": "Learn More",
+
+                // PWA Install Section
+                "pwa-title": "Install Cabinet of Selves as an App",
+                "pwa-subtitle": "Enjoy a seamless app experience directly from your browser, no app store needed.",
+                "pwa-desktop-title": "On Desktop (Chrome/Edge):",
+                "pwa-desktop-desc": "Look for the \"Install\" icon (often a plus sign or computer icon) in your browser's address bar and click to install.",
+                "pwa-android-title": "On Android (Chrome):",
+                "pwa-android-desc": "Open the browser menu (three dots) and select \"Add to Home screen\" or \"Install app\".",
+                "pwa-ios-title": "On iOS (Safari):",
+                "pwa-ios-desc": "Tap the Share button <img> at the bottom of the screen, then scroll down and tap \"Add to Home Screen\".",
+
+                // Footer
+                "footer-logo": "Cabinet of Selves",
+                "footer-about-text": "Empowering your journey of psychological integration and emotional healing through the Internal Family Systems model.",
+                "footer-links-quick": "Quick Links",
+                "footer-link-features": "Features",
+                "footer-link-pricing": "Pricing",
+                "footer-link-how-it-works": "How It Works",
+                "footer-link-faq": "FAQ",
+                "footer-links-resources": "Resources",
+                "footer-link-blog": "Blog",
+                "footer-link-support": "Support",
+                "footer-link-community": "Community",
+                "footer-link-ifs-info": "About IFS",
+                "footer-links-contact": "Contact Us",
+                "footer-contact-email": "info@cabinetofselves.com",
+                "footer-contact-phone": "+1 (234) 567-890",
+                "footer-contact-address": "123 Harmony Lane, Mindville, USA",
+                "footer-copyright": "&copy; 2024 Cabinet of Selves. All rights reserved.",
+                "footer-link-privacy": "Privacy Policy",
+                "footer-link-terms": "Terms of Service"
             },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'top',
-                        labels: {
-                            color: '#E4DCCC',
-                            font: {
-                                family: "'Inter', sans-serif"
-                            }
-                        }
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                return `${context.dataset.label}: ${context.raw}/5`;
-                            }
-                        },
-                        backgroundColor: 'rgba(9, 26, 43, 0.9)',
-                        titleColor: '#E4DCCC',
-                        bodyColor: '#C5BCAB',
-                        borderColor: '#BBA45C',
-                        borderWidth: 1
-                    },
-                    title: {
-                        display: true,
-                        text: 'Happiness Development Over 6 Weeks',
-                        font: {
-                            size: 16,
-                            family: "'Cormorant', serif"
-                        },
-                        color: '#E4DCCC'
-                    }
-                },
-                scales: {
-                    y: {
-                        min: 1,
-                        max: 5,
-                        ticks: {
-                            stepSize: 1,
-                            color: '#C5BCAB',
-                            font: {
-                                family: "'Inter', sans-serif"
-                            }
-                        },
-                        grid: {
-                            color: 'rgba(197, 188, 171, 0.1)'
-                        }
-                    },
-                    x: {
-                        ticks: {
-                            color: '#C5BCAB',
-                            font: {
-                                family: "'Inter', sans-serif"
-                            }
-                        },
-                        grid: {
-                            color: 'rgba(197, 188, 171, 0.1)'
-                        }
-                    }
-                }
-            }
-        });
+            es: {
+                // Navigation
+                "navbar-logo": "Gabinete de Yoes",
+                "nav-home": "Inicio",
+                "nav-about": "Sobre IFS",
+                "nav-features": "Características",
+                "nav-how-it-works": "Cómo Funciona",
+                "nav-pricing": "Precios",
+                "nav-testimonials": "Testimonios",
+                "nav-faq": "Preguntas Frecuentes",
+                "select-language": "Seleccionar Idioma",
 
-        // Initialize Swiper for app screenshots
-        const swiper = new Swiper('.swiper', {
-            loop: true,
-            autoplay: {
-                delay: 5000,
-                disableOnInteraction: false,
+                // Hero Section
+                "hero-title": "Descubre tu Armonía Interior con Gabinete de Yoes",
+                "hero-subtitle": "Una herramienta revolucionaria basada en el Sistema de Familias Internas (IFS) para ayudarte a explorar, comprender e integrar tu mundo interior.",
+                "hero-btn-learn-more": "Saber Más",
+                "hero-btn-get-started": "Empezar",
+
+                // IFS Introduction
+                "ifs-intro-title": "¿Qué es el Sistema de Familias Internas (IFS)?",
+                "ifs-intro-p1": "El Sistema de Familias Internas (IFS) es un modelo de psicoterapia poderosamente transformador y basado en la evidencia, desarrollado por Richard C. Schwartz, Ph.D. Ofrece una forma clara, no patologizante y empoderadora de comprender la conciencia humana.",
+                "ifs-intro-p2": "IFS sugiere que nuestras mentes son naturalmente múltiples, no solo como resultado de un trauma o enfermedad mental, sino como un aspecto normal y saludable de la experiencia humana. Todos tenemos una \"familia interna\" de partes, subpersonalidades con sus propias cualidades, creencias y emociones únicas.",
+                "ifs-intro-btn-watch-video": "Ver Video Explicativo",
+
+                // Features Section
+                "features-title": "Características Principales de Gabinete de Yoes",
+                "feature1-title": "Mapeo Interactivo de Partes",
+                "feature1-description": "Visualiza tu paisaje interior. Mapea tus diferentes partes, comprende sus roles y observa cómo interactúan.",
+                "feature2-title": "Ejercicios Autoguiados",
+                "feature2-description": "Participa en meditaciones guiadas y sugerencias de diario diseñadas para fomentar la autocompasión y el diálogo interno.",
+                "feature3-title": "Seguimiento Emocional",
+                "feature3-description": "Monitorea tus estados emocionales a lo largo del tiempo e identifica patrones en tu sistema interno.",
+                "feature4-title": "Progreso de Integración",
+                "feature4-description": "Sigue tu viaje hacia una mayor armonía interna y observa tu progreso a medida que las partes se integran.",
+
+                // Visualization Section
+                "visualization-title": "La Importancia de la Visualización",
+                "visualization-p1": "En IFS, visualizar tus partes internas puede profundizar significativamente tu comprensión y conexión con ellas. Gabinete de Yoes proporciona una interfaz intuitiva para ayudarte a lograrlo.",
+                "visualization-p2": "Al crear representaciones visuales, puedes identificar, comunicarte y, en última instancia, sanar tu paisaje interior de manera más fácil. Este proceso hace que los conceptos psicológicos abstractos sean tangibles y accionables.",
+
+                // Multilingual Section
+                "multilingual-title": "Disponible en Varios Idiomas",
+                "multilingual-subtitle": "Gabinete de Yoes está diseñado para ser accesible en todo el mundo, ofreciendo soporte en varios idiomas para atender a una audiencia global.",
+                "lang-english": "Inglés",
+                "lang-english-desc": "Soporte de idioma estándar.",
+                "lang-spanish": "Español",
+                "lang-spanish-desc": "Soporte completo para hispanohablantes.",
+                "lang-french": "Francés",
+                "lang-french-desc": "Traducción completa disponible.",
+
+                // Pricing Section
+                "pricing-title": "Planes Flexibles para tu Viaje",
+                "pricing-subtitle": "Elige el plan que mejor se adapte a tus necesidades de integración psicológica y curación.",
+                "plan-basic-name": "Plan Básico",
+                "currency-symbol": "€",
+                "plan-free-period": "/mes",
+                "plan-basic-feature1": "Mapeo de Partes Limitado",
+                "plan-basic-feature2": "3 Meditaciones Guiadas",
+                "plan-basic-feature3": "Diario Básico",
+                "plan-basic-feature4": "Análisis de Tendencias Emocionales",
+                "plan-basic-feature5": "Soporte Prioritario",
+                "plan-basic-btn": "Empezar Gratis",
+                "plan-premium-name": "Plan Premium",
+                "plan-monthly-period": "/mes",
+                "plan-premium-feature1": "Mapeo de Partes Ilimitado",
+                "plan-premium-feature2": "Biblioteca Completa de Meditaciones",
+                "plan-premium-feature3": "Diario Avanzado",
+                "plan-premium-feature4": "Análisis de Tendencias Emocionales",
+                "plan-premium-feature5": "Soporte por Correo Electrónico",
+                "plan-premium-btn": "Elegir Premium",
+                "plan-pro-name": "Plan Pro",
+                "plan-pro-feature1": "Todas las Funciones Premium",
+                "plan-pro-feature2": "Información Personalizada",
+                "plan-pro-feature3": "Incorporación Dedicada",
+                "plan-pro-feature4": "Soporte Prioritario por Chat",
+                "plan-pro-feature5": "Acceso Anticipado a Nuevas Funciones",
+                "plan-pro-btn": "Hacerse Pro",
+
+                // How It Works Section
+                "how-it-works-title": "Cómo Funciona Gabinete de Yoes",
+                "how-it-works-subtitle": "Nuestro proceso intuitivo te guía a través del autodescubrimiento paso a paso.",
+                "step1-title": "Identifica tus Partes",
+                "step1-description": "Comienza por reconocer los diversos pensamientos, sentimientos y creencias que componen tu sistema interno.",
+                "step2-title": "Comprende sus Roles",
+                "step2-description": "Explora cuál es la intención de cada parte y cómo intenta protegerte, incluso si sus métodos son inútiles.",
+                "step3-title": "Accede a la Energía del Self",
+                "step3-description": "Aprende a conectarte con tu Self central, una fuente de compasión, curiosidad y calma, para liderar tu sistema.",
+                "step4-title": "Cura e Integra",
+                "step4-description": "Facilita el diálogo entre tu Self y tus partes, liberando sus cargas y fomentando la armonía interna.",
+
+                // App Screenshots Section
+                "screenshots-title": "Capturas de Pantalla de la Aplicación",
+                "screenshots-subtitle": "Echa un vistazo a la interfaz intuitiva y las potentes funciones.",
+
+                // Testimonials Section
+                "testimonials-title": "Lo que Dicen Nuestros Usuarios",
+                "testimonials-subtitle": "Escucha a las personas que han encontrado claridad y sanación con Gabinete de Yoes.",
+                "testimonial1-quote": "\"Gabinete de Yoes transformó mi comprensión de mi mundo interior. ¡La función de mapeo de partes es increíblemente reveladora!\"",
+                "testimonial1-author": "— Alex J.",
+                "testimonial1-role": "Usuario desde 2023",
+                "testimonial2-quote": "\"He probado muchas aplicaciones de mindfulness, pero esta realmente se destaca por su enfoque IFS. Muy recomendable para cualquiera en un viaje de sanación.\"",
+                "testimonial2-author": "— María P.",
+                "testimonial2-role": "Estudiante de Psicología",
+                "testimonial3-quote": "\"Los ejercicios guiados me ayudaron a conectar con partes que ni siquiera sabía que existían. Es una herramienta profunda y gentil.\"",
+                "testimonial3-author": "— David L.",
+                "testimonial3-role": "Terapeuta",
+
+                // Data Visualization Section
+                "data-viz-title": "Visualiza tu Progreso",
+                "data-viz-subtitle": "Observa tus cambios emocionales y psicológicos a lo largo del tiempo con nuestra visualización de datos integrada.",
+                "chart-title-mood": "Tendencias de Humor a lo Largo del Tiempo",
+                "chart-title-part-activity": "Distribución de Actividad de Partes",
+
+                // FAQ Section
+                "faq-title": "Preguntas Frecuentes",
+                "faq-subtitle": "Encuentra respuestas a preguntas comunes sobre Gabinete de Yoes e IFS.",
+                "faq1-q": "¿Gabinete de Yoes sustituye la terapia?",
+                "faq1-a": "No, Gabinete de Yoes es una herramienta de autoayuda diseñada para complementar el trabajo terapéutico, no para reemplazarlo. Puede ser un gran complemento a la terapia IFS o un recurso para la exploración personal.",
+                "faq2-q": "¿Necesito conocer IFS para usar esta aplicación?",
+                "faq2-a": "¡En absoluto! Nuestra aplicación está diseñada para introducir conceptos de IFS de manera accesible, con ejercicios guiados y explicaciones claras para principiantes.",
+                "faq3-q": "¿Mis datos son privados y seguros?",
+                "faq3-a": "Absolutamente. Priorizamos tu privacidad y seguridad de datos. Toda tu información está encriptada y almacenada de forma segura. Consulta nuestra Política de Privacidad para más detalles.",
+                "faq4-q": "¿Con qué dispositivos es compatible la aplicación?",
+                "faq4-a": "Gabinete de Yoes es una Aplicación Web Progresiva (PWA), lo que significa que funciona en todos los navegadores modernos en dispositivos de escritorio y móviles. Puedes instalarla directamente desde tu navegador.",
+
+                // CTA Section
+                "cta-title": "¿Listo para Comenzar tu Viaje de Autodescubrimiento?",
+                "cta-subtitle": "Comienza a explorar tu mundo interior hoy y fomenta una mayor armonía y bienestar.",
+                "cta-btn-start-now": "Comenzar Ahora",
+                "cta-btn-learn-more": "Saber Más",
+
+                // PWA Install Section
+                "pwa-title": "Instala Gabinete de Yoes como Aplicación",
+                "pwa-subtitle": "Disfruta de una experiencia de aplicación fluida directamente desde tu navegador, sin necesidad de tienda de aplicaciones.",
+                "pwa-desktop-title": "En Escritorio (Chrome/Edge):",
+                "pwa-desktop-desc": "Busca el icono de \"Instalar\" (a menudo un signo más o un icono de computadora) en la barra de direcciones de tu navegador y haz clic para instalar.",
+                "pwa-android-title": "En Android (Chrome):",
+                "pwa-android-desc": "Abre el menú del navegador (tres puntos) y selecciona \"Añadir a pantalla de inicio\" o \"Instalar aplicación\".",
+                "pwa-ios-title": "En iOS (Safari):",
+                "pwa-ios-desc": "Toca el botón Compartir <img> en la parte inferior de la pantalla, luego desplázate hacia abajo y toca \"Añadir a pantalla de inicio\".",
+
+                // Footer
+                "footer-logo": "Gabinete de Yoes",
+                "footer-about-text": "Impulsando tu viaje de integración psicológica y curación emocional a través del modelo del Sistema de Familias Internas.",
+                "footer-links-quick": "Enlaces Rápidos",
+                "footer-link-features": "Características",
+                "footer-link-pricing": "Precios",
+                "footer-link-how-it-works": "Cómo Funciona",
+                "footer-link-faq": "Preguntas Frecuentes",
+                "footer-links-resources": "Recursos",
+                "footer-link-blog": "Blog",
+                "footer-link-support": "Soporte",
+                "footer-link-community": "Comunidad",
+                "footer-link-ifs-info": "Sobre IFS",
+                "footer-links-contact": "Contáctanos",
+                "footer-contact-email": "info@cabinetofselves.com",
+                "footer-contact-phone": "+1 (234) 567-890",
+                "footer-contact-address": "123 Harmony Lane, Mindville, USA",
+                "footer-copyright": "&copy; 2024 Gabinete de Yoes. Todos los derechos reservados.",
+                "footer-link-privacy": "Política de Privacidad",
+                "footer-link-terms": "Términos de Servicio"
             },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            effect: 'coverflow',
-            grabCursor: true,
-            centeredSlides: true,
-            slidesPerView: 'auto',
-            coverflowEffect: {
-                rotate: 10,
-                stretch: 0,
-                depth: 100,
-                modifier: 1,
-                slideShadows: true,
+            fr: {
+                // Navigation
+                "navbar-logo": "Cabinet des Soi",
+                "nav-home": "Accueil",
+                "nav-about": "À Propos de l'IFS",
+                "nav-features": "Fonctionnalités",
+                "nav-how-it-works": "Comment ça Marche",
+                "nav-pricing": "Tarifs",
+                "nav-testimonials": "Témoignages",
+                "nav-faq": "FAQ",
+                "select-language": "Sélectionner la Langue",
+
+                // Hero Section
+                "hero-title": "Débloquez Votre Harmonie Intérieure avec le Cabinet des Soi",
+                "hero-subtitle": "Un outil révolutionnaire basé sur le Système Familial Intérieur (IFS) pour vous aider à explorer, comprendre et intégrer votre monde intérieur.",
+                "hero-btn-learn-more": "En Savoir Plus",
+                "hero-btn-get-started": "Commencer",
+
+                // IFS Introduction
+                "ifs-intro-title": "Qu'est-ce que le Système Familial Intérieur (IFS) ?",
+                "ifs-intro-p1": "Le Système Familial Intérieur (IFS) est un modèle de psychothérapie profondément transformateur et fondé sur des preuves, développé par Richard C. Schwartz, Ph.D. Il offre une manière claire, non pathologisante et autonomisante de comprendre la conscience humaine.",
+                "ifs-intro-p2": "L'IFS suggère que nos esprits sont naturellement multiples, non seulement en raison d'un traumatisme ou d'une maladie mentale, mais comme un aspect normal et sain de l'expérience humaine. Nous avons tous une « famille intérieure » de parties – des sous-personnalités avec leurs propres qualités, croyances et émotions uniques.",
+                "ifs-intro-btn-watch-video": "Voir la Vidéo Explicative",
+
+                // Features Section
+                "features-title": "Fonctionnalités Principales du Cabinet des Soi",
+                "feature1-title": "Cartographie Interactive des Parties",
+                "feature1-description": "Visualisez votre paysage intérieur. Cartographiez vos différentes parties, comprenez leurs rôles et voyez comment elles interagissent.",
+                "feature2-title": "Exercices Autoguidés",
+                "feature2-description": "Participez à des méditations guidées et des invites de journal conçues pour favoriser l'auto-compassion et le dialogue intérieur.",
+                "feature3-title": "Suivi Émotionnel",
+                "feature3-description": "Surveillez vos états émotionnels au fil du temps et identifiez les schémas dans votre système interne.",
+                "feature4-title": "Progrès d'Intégration",
+                "feature4-description": "Suivez votre parcours vers une plus grande harmonie intérieure et voyez vos progrès à mesure que les parties s'intègrent.",
+
+                // Visualization Section
+                "visualization-title": "L'Importance de la Visualisation",
+                "visualization-p1": "En IFS, visualiser vos parties internes peut approfondir considérablement votre compréhension et votre connexion avec elles. Le Cabinet des Soi offre une interface intuitive pour vous aider à le faire.",
+                "visualization-p2": "En créant des représentations visuelles, vous pouvez plus facilement identifier, communiquer et finalement guérir votre paysage intérieur. Ce processus rend les concepts psychologiques abstraits tangibles et exploitables.",
+
+                // Multilingual Section
+                "multilingual-title": "Disponible en Plusieurs Langues",
+                "multilingual-subtitle": "Cabinet des Soi est conçu pour être accessible dans le monde entier, offrant un soutien dans diverses langues pour répondre à un public mondial.",
+                "lang-english": "Anglais",
+                "lang-english-desc": "Support linguistique standard.",
+                "lang-spanish": "Espagnol",
+                "lang-spanish-desc": "Support complet pour les hispanophones.",
+                "lang-french": "Français",
+                "lang-french-desc": "Traduction complète disponible.",
+
+                // Pricing Section
+                "pricing-title": "Plans Flexibles pour Votre Voyage",
+                "pricing-subtitle": "Choisissez le plan qui correspond le mieux à vos besoins d'intégration psychologique et de guérison.",
+                "plan-basic-name": "Plan Basique",
+                "currency-symbol": "€",
+                "plan-free-period": "/mois",
+                "plan-basic-feature1": "Cartographie des Parties Limitée",
+                "plan-basic-feature2": "3 Méditations Guidées",
+                "plan-basic-feature3": "Journalisation Basique",
+                "plan-basic-feature4": "Analyse des Tendances Émotionnelles",
+                "plan-basic-feature5": "Support Prioritaire",
+                "plan-basic-btn": "Commencer Gratuitement",
+                "plan-premium-name": "Plan Premium",
+                "plan-monthly-period": "/mois",
+                "plan-premium-feature1": "Cartographie des Parties Illimitée",
+                "plan-premium-feature2": "Bibliothèque Complète de Méditations",
+                "plan-premium-feature3": "Journalisation Avancée",
+                "plan-premium-feature4": "Analyse des Tendances Émotionnelles",
+                "plan-premium-feature5": "Support par Email",
+                "plan-premium-btn": "Choisir Premium",
+                "plan-pro-name": "Plan Pro",
+                "plan-pro-feature1": "Toutes les Fonctionnalités Premium",
+                "plan-pro-feature2": "Insights Personnalisés",
+                "plan-pro-feature3": "Intégration Dédiée",
+                "plan-pro-feature4": "Support Prioritaire par Chat",
+                "plan-pro-feature5": "Accès Anticipé aux Nouvelles Fonctionnalités",
+                "plan-pro-btn": "Passer au Pro",
+
+                // How It Works Section
+                "how-it-works-title": "Comment Fonctionne le Cabinet des Soi",
+                "how-it-works-subtitle": "Notre processus intuitif vous guide pas à pas dans la découverte de soi.",
+                "step1-title": "Identifiez Vos Parties",
+                "step1-description": "Commencez par reconnaître les diverses pensées, sentiments et croyances qui composent votre système intérieur.",
+                "step2-title": "Comprenez Leurs Rôles",
+                "step2-description": "Explorez l'intention de chaque partie et comment elle essaie de vous protéger, même si ses méthodes sont inutiles.",
+                "step3-title": "Accédez à l'Énergie du Soi",
+                "step3-description": "Apprenez à vous connecter à votre Soi central, une source de compassion, de curiosité et de calme, pour guider votre système.",
+                "step4-title": "Guérir et Intégrer",
+                "step4-description": "Facilitez le dialogue entre votre Soi et vos parties, libérez leurs fardeaux et favorisez l'harmonie intérieure.",
+
+                // App Screenshots Section
+                "screenshots-title": "Captures d'Écran de l'Application",
+                "screenshots-subtitle": "Découvrez l'interface intuitive et les fonctionnalités puissantes.",
+
+                // Testimonials Section
+                "testimonials-title": "Ce que Disent Nos Utilisateurs",
+                "testimonials-subtitle": "Écoutez les témoignages de personnes qui ont trouvé clarté et guérison avec le Cabinet des Soi.",
+                "testimonial1-quote": "\"Le Cabinet des Soi a transformé ma compréhension de mon monde intérieur. La fonction de cartographie des parties est incroyablement perspicace !\"",
+                "testimonial1-author": "— Alex J.",
+                "testimonial1-role": "Utilisateur depuis 2023",
+                "testimonial2-quote": "\"J'ai essayé de nombreuses applications de pleine conscience, mais celle-ci se distingue vraiment par son approche IFS. Fortement recommandée pour quiconque est en quête de guérison.\"",
+                "testimonial2-author": "— Maria P.",
+                "testimonial2-role": "Étudiante en Psychologie",
+                "testimonial3-quote": "\"Les exercices guidés m'ont aidé à me connecter à des parties que je ne savais même pas exister. C'est un outil profond et doux.\"",
+                "testimonial3-author": "— David L.",
+                "testimonial3-role": "Thérapeute",
+
+                // Data Visualization Section
+                "data-viz-title": "Visualisez Votre Progrès",
+                "data-viz-subtitle": "Visualisez vos changements émotionnels et psychologiques au fil du temps grâce à notre visualisation de données intégrée.",
+                "chart-title-mood": "Tendances de l'Humeur au Fil du Temps",
+                "chart-title-part-activity": "Distribution de l'Activité des Parties",
+
+                // FAQ Section
+                "faq-title": "Foire Aux Questions",
+                "faq-subtitle": "Trouvez les réponses aux questions fréquentes sur le Cabinet des Soi et l'IFS.",
+                "faq1-q": "Le Cabinet des Soi est-il un substitut à la thérapie ?",
+                "faq1-a": "Non, le Cabinet des Soi est un outil d'auto-assistance conçu pour compléter le travail thérapeutique, et non le remplacer. Il peut être un excellent complément à la thérapie IFS ou une ressource pour l'exploration personnelle.",
+                "faq2-q": "Ai-je besoin de connaître l'IFS pour utiliser cette application ?",
+                "faq2-a": "Pas du tout ! Notre application est conçue pour introduire les concepts de l'IFS de manière accessible, avec des exercices guidés et des explications claires pour les débutants.",
+                "faq3-q": "Mes données sont-elles privées et sécurisées ?",
+                "faq3-a": "Absolument. Nous privilégions votre confidentialité et la sécurité de vos données. Toutes vos informations sont cryptées et stockées en toute sécurité. Veuillez consulter notre Politique de confidentialité pour plus de détails.",
+                "faq4-q": "Avec quels appareils l'application est-elle compatible ?",
+                "faq4-a": "Le Cabinet des Soi est une Application Web Progressive (PWA), ce qui signifie qu'elle fonctionne sur tous les navigateurs modernes sur les ordinateurs de bureau et les appareils mobiles. Vous pouvez l'installer directement depuis votre navigateur.",
+
+                // CTA Section
+                "cta-title": "Prêt à Commencer Votre Voyage de Découverte de Soi ?",
+                "cta-subtitle": "Commencez à explorer votre monde intérieur aujourd'hui et favorisez une plus grande harmonie et un plus grand bien-être.",
+                "cta-btn-start-now": "Commencer Maintenant",
+                "cta-btn-learn-more": "En Savoir Plus",
+
+                // PWA Install Section
+                "pwa-title": "Installer le Cabinet des Soi en tant qu'Application",
+                "pwa-subtitle": "Profitez d'une expérience d'application fluide directement depuis votre navigateur, sans besoin de boutique d'applications.",
+                "pwa-desktop-title": "Sur Ordinateur (Chrome/Edge) :",
+                "pwa-desktop-desc": "Recherchez l'icône « Installer » (souvent un signe plus ou une icône d'ordinateur) dans la barre d'adresse de votre navigateur et cliquez pour installer.",
+                "pwa-android-title": "Sur Android (Chrome) :",
+                "pwa-android-desc": "Ouvrez le menu du navigateur (trois points) et sélectionnez « Ajouter à l'écran d'accueil » ou « Installer l'application ».",
+                "pwa-ios-title": "Sur iOS (Safari) :",
+                "pwa-ios-desc": "Appuyez sur le bouton Partager <img> en bas de l'écran, puis faites défiler vers le bas et appuyez sur « Ajouter à l'écran d'accueil ».",
+
+                // Footer
+                "footer-logo": "Cabinet des Soi",
+                "footer-about-text": "Soutenir votre parcours d'intégration psychologique et de guérison émotionnelle grâce au modèle du Système Familial Intérieur.",
+                "footer-links-quick": "Liens Rapides",
+                "footer-link-features": "Fonctionnalités",
+                "footer-link-pricing": "Tarifs",
+                "footer-link-how-it-works": "Comment ça Marche",
+                "footer-link-faq": "FAQ",
+                "footer-links-resources": "Ressources",
+                "footer-link-blog": "Blog",
+                "footer-link-support": "Support",
+                "footer-link-community": "Communauté",
+                "footer-link-ifs-info": "À Propos de l'IFS",
+                "footer-links-contact": "Nous Contacter",
+                "footer-contact-email": "info@cabinetofselves.com",
+                "footer-contact-phone": "+1 (234) 567-890",
+                "footer-contact-address": "123 Harmony Lane, Mindville, USA",
+                "footer-copyright": "&copy; 2024 Cabinet des Soi. Tous droits réservés.",
+                "footer-link-privacy": "Politique de Confidentialité",
+                "footer-link-terms": "Conditions d'Utilisation"
             }
-        });
-
-        // FAQ functionality
-        const faqQuestions = document.querySelectorAll('.faq-question');
-        faqQuestions.forEach(question => {
-            question.addEventListener('click', () => {
-                const item = question.parentElement;
-                item.classList.toggle('active');
-                
-                // Close other open FAQs
-                if (item.classList.contains('active')) {
-                    document.querySelectorAll('.faq-item').forEach(otherItem => {
-                        if (otherItem !== item && otherItem.classList.contains('active')) {
-                            otherItem.classList.remove('active');
-                        }
-                    });
-                }
-            });
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-                
-                // Close mobile menu if open
-                if (navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                    mobileMenuBtn.innerHTML = '<i data-lucide="menu"></i>';
-                    lucide.createIcons();
-                }
-            });
-        });
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            if(window.scrollY > 20) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Testimonial slider
-        let currentTestimonial = 0;
-        const testimonials = document.querySelectorAll('.testimonial-card');
-        
-        function showTestimonial(index) {
-            testimonials.forEach((testimonial, i) => {
-                testimonial.classList.toggle('active', i === index);
-            });
-        }
-        
-        function nextTestimonial() {
-            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-            showTestimonial(currentTestimonial);
-        }
-        
-        // Start with first testimonial visible
-        showTestimonial(0);
-        
-        // Auto-rotate testimonials every 5 seconds
-        setInterval(nextTestimonial, 5000);
-
-        // YouTube modal logic
-        const videoModal = document.getElementById("videoModal");
-        const openVideo = document.getElementById("openVideo");
-        const openVideo2 = document.getElementById("openVideo2");
-        const closeVideo = document.getElementById("closeVideo");
-        const youtubePlayer = document.getElementById("youtubePlayer");
-
-        function openVideoModal() {
-            youtubePlayer.src = "https://www.youtube.com/embed/RlHy36hR2AQ?autoplay=1&rel=0";
-            videoModal.classList.add("active");
-            document.body.style.overflow = "hidden";
-        }
-
-        function closeVideoModal() {
-            videoModal.classList.remove("active");
-            youtubePlayer.src = "";
-            document.body.style.overflow = "";
-        }
-
-        openVideo.addEventListener("click", openVideoModal);
-        openVideo2.addEventListener("click", openVideoModal);
-        
-        closeVideo.addEventListener("click", closeVideoModal);
-
-        window.addEventListener("click", (e) => {
-            if (e.target === videoModal) {
-                closeVideoModal();
-            }
-        });
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && videoModal.classList.contains('active')) {
-                closeVideoModal();
-            }
-        });
-
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navLinks = document.querySelector('.nav-links');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
-                ? '<i data-lucide="x"></i>' 
-                : '<i data-lucide="menu"></i>';
-            lucide.createIcons(); // Refresh icons after changing
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.navbar') && navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                mobileMenuBtn.innerHTML = '<i data-lucide="menu"></i>';
-                lucide.createIcons();
-            }
-        });
-
-        // Add animation to elements when they come into view
-        const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.feature-card, .step-card, .pwa-step, .language-card');
-            
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
-                
-                if(elementPosition < screenPosition) {
-                    element.classList.add('animate__animated', 'animate__fadeInUp');
-                }
-            });
         };
 
-        window.addEventListener('scroll', animateOnScroll);
-        animateOnScroll(); // Run once on page load
+        function setLanguage(lang) {
+            document.documentElement.lang = lang; // Set the HTML lang attribute
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    // Handle special cases like the PWA iOS description which contains an icon
+                    if (key === "pwa-ios-desc") {
+                        element.innerHTML = translations[lang][key].replace('<img>', '<i data-lucide="share"></i>');
+                        lucide.createIcons(); // Re-render Lucide icons if new ones are added
+                    } else if (key === "hero-btn-learn-more" || key === "hero-btn-get-started" || key === "ifs-intro-btn-watch-video" || key === "cta-btn-start-now" || key === "cta-btn-learn-more") {
+                        // For buttons with icons, preserve the icon and update text content
+                        const icon = element.querySelector('i');
+                        element.textContent = translations[lang][key];
+                        if (icon) {
+                            element.appendChild(icon);
+                        }
+                    } else if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+            // Update currency symbol if applicable
+            const currencySymbolElements = document.querySelectorAll('[data-i18n="currency-symbol"]');
+            currencySymbolElements.forEach(element => {
+                if (translations[lang] && translations[lang]["currency-symbol"]) {
+                    element.textContent = translations[lang]["currency-symbol"];
+                }
+            });
 
-        // Create floating particles
-        function createParticles() {
-            const particlesContainer = document.createElement('div');
-            particlesContainer.style.position = 'fixed';
-            particlesContainer.style.top = '0';
-            particlesContainer.style.left = '0';
-            particlesContainer.style.width = '100%';
-            particlesContainer.style.height = '100%';
-            particlesContainer.style.pointerEvents = 'none';
-            particlesContainer.style.zIndex = '-1';
-            document.body.appendChild(particlesContainer);
-
-            const particleCount = 30;
-            const colors = ['#BBA45C', '#D5A5C9', '#E4DCCC'];
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                
-                // Random properties
-                const size = Math.random() * 5 + 2;
-                const color = colors[Math.floor(Math.random() * colors.length)];
-                const xPos = Math.random() * 100;
-                const yPos = Math.random() * 100;
-                const duration = Math.random() * 20 + 10;
-                const delay = Math.random() * -20;
-                const xMovement = (Math.random() - 0.5) * 50;
-                const yMovement = (Math.random() - 0.5) * 50;
-                
-                // Apply properties
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                particle.style.background = color;
-                particle.style.opacity = Math.random() * 0.5 + 0.1;
-                particle.style.left = `${xPos}%`;
-                particle.style.top = `${yPos}%`;
-                particle.style.setProperty('--x-movement', `${xMovement}px`);
-                particle.style.setProperty('--y-movement', `${yMovement}px`);
-                particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
-                
-                particlesContainer.appendChild(particle);
-            }
+            // Store selected language in local storage
+            localStorage.setItem('selectedLanguage', lang);
         }
 
-        createParticles();
+        // Event listener for language selection change
+        document.addEventListener('DOMContentLoaded', () => {
+            const languageSelect = document.getElementById('language-select');
 
-        // Add shimmer effect to feature cards on hover
-        document.querySelectorAll('.feature-card').forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.classList.add('animate-shimmer');
+            // Load saved language or default to English
+            const savedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+            languageSelect.value = savedLanguage;
+            setLanguage(savedLanguage);
+
+            languageSelect.addEventListener('change', (event) => {
+                setLanguage(event.target.value);
             });
-            
-            card.addEventListener('mouseleave', () => {
-                card.classList.remove('animate-shimmer');
+
+            // Navbar scroll effect
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
             });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // FAQ accordion
+            document.querySelectorAll('.faq-question').forEach(question => {
+                question.addEventListener('click', () => {
+                    const faqItem = question.closest('.faq-item');
+                    faqItem.classList.toggle('active');
+                });
+            });
+
+            // Swiper for app screenshots
+            const swiper = new Swiper('.mySwiper', {
+                loop: true,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+            });
+
+            // Testimonial slider
+            const testimonialCards = document.querySelectorAll('.testimonial-card');
+            const testimonialPagination = document.querySelector('.testimonial-pagination');
+            let currentTestimonialIndex = 0;
+
+            if (testimonialCards.length > 0) {
+                // Create pagination bullets
+                testimonialCards.forEach((_, index) => {
+                    const bullet = document.createElement('span');
+                    bullet.classList.add('swiper-pagination-bullet');
+                    bullet.addEventListener('click', () => showTestimonial(index));
+                    testimonialPagination.appendChild(bullet);
+                });
+
+                function showTestimonial(index) {
+                    testimonialCards.forEach((card, i) => {
+                        card.classList.remove('active');
+                        card.style.zIndex = 1; // Reset z-index
+                        if (i === index) {
+                            card.classList.add('active');
+                            card.style.zIndex = 2; // Bring active card to front
+                        }
+                    });
+                    document.querySelectorAll('.testimonial-pagination .swiper-pagination-bullet').forEach((bullet, i) => {
+                        bullet.classList.remove('swiper-pagination-bullet-active');
+                        if (i === index) {
+                            bullet.classList.add('swiper-pagination-bullet-active');
+                        }
+                    });
+                    currentTestimonialIndex = index;
+                }
+
+                function nextTestimonial() {
+                    currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonialCards.length;
+                    showTestimonial(currentTestimonialIndex);
+                }
+
+                // Auto-advance testimonials
+                setInterval(nextTestimonial, 5000); // Change testimonial every 5 seconds
+                showTestimonial(0); // Show the first testimonial initially
+            }
+
+            // Video Modal functionality
+            const videoModal = document.getElementById('videoModal');
+            const videoCloseBtn = videoModal.querySelector('.video-close');
+            const youtubeVideo = document.getElementById('youtube-video');
+            const videoTriggers = document.querySelectorAll('.video-trigger');
+
+            videoTriggers.forEach(trigger => {
+                trigger.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const videoId = trigger.getAttribute('data-video-id');
+                    youtubeVideo.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+                    videoModal.classList.add('active');
+                });
+            });
+
+            videoCloseBtn.addEventListener('click', () => {
+                videoModal.classList.remove('active');
+                youtubeVideo.src = ''; // Stop the video
+            });
+
+            videoModal.addEventListener('click', (e) => {
+                if (e.target === videoModal) {
+                    videoModal.classList.remove('active');
+                    youtubeVideo.src = ''; // Stop the video
+                }
+            });
+
+            // Initialize Chart.js for data visualization (dummy data)
+            const moodCtx = document.getElementById('moodChart').getContext('2d');
+            new Chart(moodCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                    datasets: [{
+                        label: 'Average Mood Score',
+                        data: [65, 59, 80, 81, 56, 55, 70],
+                        borderColor: 'var(--mauve-mist)',
+                        backgroundColor: 'rgba(213, 165, 201, 0.2)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: 'var(--parchment)'
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                color: 'rgba(187, 164, 92, 0.1)'
+                            },
+                            ticks: {
+                                color: 'var(--weathered-silver)'
+                            }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(187, 164, 92, 0.1)'
+                            },
+                            ticks: {
+                                color: 'var(--weathered-silver)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            const partActivityCtx = document.getElementById('partActivityChart').getContext('2d');
+            new Chart(partActivityCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['Protectors', 'Exiles', 'Managers', 'Firefighters', 'Self'],
+                    datasets: [{
+                        label: 'Part Activity',
+                        data: [30, 20, 25, 15, 10],
+                        backgroundColor: [
+                            'rgba(213, 165, 201, 0.8)', // Mauve Mist
+                            'rgba(187, 164, 92, 0.8)',   // Sacred Gold
+                            'rgba(16, 50, 70, 0.8)',     // Cosmic Teal
+                            'rgba(9, 26, 43, 0.8)',      // Cosmic Deep
+                            'rgba(228, 220, 204, 0.8)'   // Parchment
+                        ],
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: 'var(--parchment)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // WOW.js initialization for scroll animations
+            new WOW().init();
+
+            // Floating particles (optional, if you want this visual effect)
+            function createParticle() {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                document.body.appendChild(particle);
+
+                const size = Math.random() * 5 + 2 + 'px'; // 2 to 7px
+                particle.style.width = size;
+                particle.style.height = size;
+                particle.style.background = `radial-gradient(circle, ${Math.random() > 0.5 ? 'var(--mauve-mist)' : 'var(--sacred-gold)'} 0%, transparent 70%)`;
+                particle.style.opacity = Math.random() * 0.5 + 0.1; // 0.1 to 0.6 opacity
+
+                const startX = Math.random() * window.innerWidth;
+                const startY = Math.random() * window.innerHeight;
+                particle.style.left = `${startX}px`;
+                particle.style.top = `${startY}px`;
+
+                const duration = Math.random() * 10 + 5; // 5 to 15 seconds
+                particle.style.animation = `float ${duration}s infinite alternate ease-in-out`;
+                particle.style.setProperty('--y-movement', `${(Math.random() - 0.5) * 50}px`); // -25 to 25px
+                particle.style.setProperty('--x-movement', `${(Math.random() - 0.5) * 50}px`); // -25 to 25px
+
+                // Remove particle after it finishes animation to prevent too many elements
+                particle.addEventListener('animationend', () => {
+                    particle.remove();
+                });
+            }
+
+            // Create a few particles initially
+            // for (let i = 0; i < 30; i++) {
+            //     createParticle();
+            // }
+            // Optionally, create new particles periodically
+            // setInterval(createParticle, 1000);
         });
-
-        // Add subtle pulse animation to CTA buttons
-        setInterval(() => {
-            document.querySelectorAll('.btn-primary').forEach(btn => {
-                btn.classList.add('animate-pulse');
-                setTimeout(() => {
-                    btn.classList.remove('animate-pulse');
-                }, 1000);
-            });
-        }, 5000);
-
-        function openShortsVideoModal() {
-    const youtubePlayer = document.getElementById("youtubePlayer");
-    youtubePlayer.src = "https://www.youtube.com/embed/iwe-l9eNmDs?autoplay=1&rel=0&modestbranding=1&playsinline=1";
-    document.getElementById("videoModal").classList.add("active");
-    document.body.style.overflow = "hidden";
-}
-
     </script>
 </body>
 </html>
